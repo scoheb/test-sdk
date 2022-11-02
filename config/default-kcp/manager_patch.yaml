@@ -1,0 +1,24 @@
+# Pass the name of the APIExport to the controller
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: controller-manager
+  namespace: system
+spec:
+  template:
+    spec:
+      containers:
+      - name: manager
+        args:
+        - "--api-export-name=$(API_EXPORT_NAME)"
+        - "--config=controller_manager_config.yaml"
+        volumeMounts:
+        - name: manager-config
+          mountPath: /controller_manager_config.yaml
+          subPath: controller_manager_config.yaml
+      volumes:
+      - name: manager-config
+        configMap:
+          name: manager-config
+

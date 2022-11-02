@@ -1,0 +1,18 @@
+componentConfig: true
+domain: tutorial.kubebuilder.io
+layout:
+- go.kubebuilder.io/v3
+plugins:
+  manifests.kcp.io/v1: {}
+projectName: test-sdk
+repo: github.com/yourrepo/kb-kcp-tutorial
+resources:
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: tutorial.kubebuilder.io
+  kind: Widget
+  path: github.com/yourrepo/kb-kcp-tutorial/api/v1alpha1
+  version: v1alpha1
+version: "3"

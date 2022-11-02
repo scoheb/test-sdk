@@ -1,0 +1,10 @@
+# Set the reference to the latest APIRresourceSchema
+---
+apiVersion: apis.kcp.dev/v1alpha1
+kind: APIExport
+metadata:
+  name: test-sdk.tutorial.kubebuilder.io
+spec:
+  latestResourceSchemas:
+     - today.widgets.tutorial.kubebuilder.io
+

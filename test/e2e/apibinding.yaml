@@ -1,0 +1,13 @@
+---
+apiVersion: apis.kcp.dev/v1alpha1
+kind: APIBinding
+metadata:
+  name: test-sdk-test-sdk.tutorial.kubebuilder.io
+spec:
+  reference:
+    workspace:
+      path: WORKSPACE
+      exportName: test-sdk-test-sdk.tutorial.kubebuilder.io
+  permissionClaims:
+  # TODO (user)
+

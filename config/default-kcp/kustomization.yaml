@@ -1,0 +1,35 @@
+# These resources are the kcp specific manifests
+# Adds namespace to all resources.
+namespace: test-sdk-system
+
+# Value of this field is prepended to the
+# names of all resources, e.g. a deployment named
+# "wordpress" becomes "alices-wordpress".
+# Note that it should also match with the prefix (text before '-') of the namespace
+# field above.
+namePrefix: test-sdk-
+
+# Labels to add to all resources and selectors.
+#commonLabels:
+#  someName: someValue
+
+bases:
+- ../kcp
+- ../rbac
+- ../manager
+
+patchesStrategicMerge:
+- manager_patch.yaml
+
+configurations:
+- kustomizeconfig.yaml
+
+# Adjust to prefix
+vars:
+- name: API_EXPORT_NAME
+  objref:
+    apiVersion: apis.kcp.dev/v1alpha1
+    kind: APIExport
+    name: test-sdk.tutorial.kubebuilder.io
+  fieldref:
+    fieldPath: metadata.name
